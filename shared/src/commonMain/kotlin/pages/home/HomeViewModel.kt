@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 class HomeViewModel {
 
@@ -25,6 +29,12 @@ class HomeViewModel {
             val characters = repository.fetchMovies()
             _uiState.value = uiState.copy(movies = characters)
         }
+    }
+
+    fun getCurrentDate(): String {
+        val currentInstant: Instant = Clock.System.now()
+        val localDateTime = currentInstant.toLocalDateTime(TimeZone.currentSystemDefault())
+        return localDateTime.month.ordinal.toString() + "/" + localDateTime.dayOfMonth + "/" + localDateTime.year
     }
 }
 

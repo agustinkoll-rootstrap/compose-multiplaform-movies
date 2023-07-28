@@ -8,7 +8,8 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
 
-class MoviesRepository {
+class MoviesRepository() {
+
     private val client = HttpClient {
         install(ContentNegotiation) { json() }
     }

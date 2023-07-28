@@ -26,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import domain.movie.MovieResult
+import getFormattedDate
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 
@@ -37,7 +38,7 @@ fun HomeScreen(homeViewModel: HomeViewModel) {
     }
     Scaffold(topBar = {
         TopAppBar(
-            title = { Text(text = "My Movies") },
+            title = { Text(text = "My Movies "+ homeViewModel.getCurrentDate()) },
             backgroundColor = Color.Black.copy(0.8f),
             contentColor = Color.White
         )
