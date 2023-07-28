@@ -38,7 +38,7 @@ fun HomeScreen(homeViewModel: HomeViewModel) {
     Scaffold(topBar = {
         TopAppBar(
             title = { Text(text = "My Movies") },
-            backgroundColor = Color.Blue,
+            backgroundColor = Color.Black.copy(0.8f),
             contentColor = Color.White
         )
     })
@@ -63,13 +63,12 @@ fun MovieCard(character: MovieResult) {
     val key = "37b2654d338023c318312c90b5eee0ba"
     Card(
         modifier = Modifier
-            .background(Color.Black.copy(alpha = 0.9f))
             .fillMaxWidth()
             .height(180.dp)
             .padding(8.dp),
-        elevation = 8.dp
+        elevation = 8.dp,
     ) {
-        Row {
+        Row (modifier = Modifier.background(Color.Black.copy(alpha = 0.8f)).fillMaxSize()) {
             // Image
             val url = "https://image.tmdb.org/t/p/w500" + character.poster_path + "?api_key=$key"
             val resource =
