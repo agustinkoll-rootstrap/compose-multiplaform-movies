@@ -3,6 +3,7 @@ import androidx.compose.ui.window.ComposeUIViewController
 
 fun MainViewController() = ComposeUIViewController { App() }
 
+// Quedo sin uso
 actual fun getFormattedDate(
     iso8601Timestamp: String,
     format: String,
@@ -13,7 +14,7 @@ actual fun getFormattedDate(
     dateFormatter.timeZone = NSTimeZone.localTimeZone
     dateFormatter.locale = NSLocale.autoupdatingCurrentLocale
     dateFormatter.dateFormat = format
-    return dateFormatter.stringFromDate(date)
+    return dateFormatter.stringFromDate(date) +" iOS"
 }
 
 private fun getDateFromIso8601Timestamp(string: String): NSDate? {
